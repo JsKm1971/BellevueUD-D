@@ -494,6 +494,102 @@
             }
         }
 
+/* =====================================================
+   PDF DOWNLOAD SECTION
+   ===================================================== */
+
+.download-section {
+    padding: 28px 30px;
+
+    background-color: #ffffff;
+
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+
+    text-align: center;
+}
+
+.download-section h2 {
+    margin: 0 0 6px;
+
+    color: #4F3674;
+
+    font-size: 1.25rem;
+}
+
+.download-section p {
+    margin: 0 0 18px;
+
+    color: #333333;
+}
+
+
+/* =====================================================
+   DOWNLOAD BUTTON
+   ===================================================== */
+
+.download-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 12px 20px;
+
+    background-color: #4F3674;
+    color: #ffffff;
+
+    border: 2px solid #4F3674;
+    border-radius: 7px;
+
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* Hover */
+
+.download-button:hover {
+    background-color: #35234f;
+    color: #ffffff;
+
+    border-color: #35234f;
+}
+
+
+/* Keyboard Focus */
+
+.download-button:focus-visible {
+    outline: 3px solid #D6A800;
+    outline-offset: 4px;
+}
+
+
+/* =====================================================
+   DOWNLOAD ICON
+   ===================================================== */
+
+.download-icon {
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+}
+
+        
     </style>
 
 </head>
@@ -1055,6 +1151,60 @@
 
         </aside>
 
+
+<!-- =================================================
+     DOWNLOAD PROJECT LIGHTHOUSE CASE
+     ================================================= -->
+
+<section class="download-section"
+         aria-labelledby="download-heading">
+
+    <h2 id="download-heading">
+        Project Lighthouse Case
+    </h2>
+
+    <p>
+        Download a PDF version of the Project Lighthouse case
+        for reference throughout the course.
+    </p>
+
+    <a class="download-button"
+       href="YOUR-PDF-LINK-HERE"
+       target="_blank"
+       rel="noopener noreferrer">
+
+        <!-- Download Icon -->
+        <svg class="download-icon"
+             viewBox="0 0 24 24"
+             aria-hidden="true"
+             focusable="false">
+
+            <path
+                d="M12 3v12
+                   M7 10l5 5 5-5
+                   M5 21h14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+            </path>
+
+        </svg>
+
+        <span>
+            Download Project Lighthouse Case (PDF)
+        </span>
+
+    </a>
+
+</section>
+
+
+
+
+
+        
     </main>
 
 
