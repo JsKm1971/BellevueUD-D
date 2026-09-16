@@ -52,6 +52,8 @@
             max-width: 1200px;
 
             margin: 0 auto;
+
+            background-color: #ffffff;
         }
 
 
@@ -69,19 +71,16 @@
             border-bottom: 5px solid #D6A800;
         }
 
-        .case-label,
-        .looking-ahead {
+        .case-label {
             display: inline-block;
 
             margin-bottom: 8px;
 
+            color: #ffffff;
+
             font-size: 0.78rem;
             font-weight: 700;
             letter-spacing: 1.5px;
-        }
-
-        .case-label {
-            color: #ffffff;
         }
 
         .case-header h1 {
@@ -140,6 +139,7 @@
         .role-callout {
             display: flex;
             align-items: center;
+
             gap: 14px;
 
             margin-top: 22px;
@@ -293,7 +293,6 @@
 
         .accordion-panel ul {
             margin-bottom: 0;
-
             padding-left: 24px;
         }
 
@@ -311,7 +310,15 @@
         }
 
         .looking-ahead {
+            display: inline-block;
+
+            margin-bottom: 8px;
+
             color: #4F3674;
+
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
         }
 
         .table-wrapper {
@@ -360,7 +367,7 @@
 
 
         /* =====================================================
-           RISK BADGES
+           RISK TYPE BADGES
            ===================================================== */
 
         .risk-badge {
@@ -374,11 +381,13 @@
 
             font-size: 0.85rem;
             font-weight: 700;
+
             text-align: center;
         }
 
         .threat {
             color: #7a1d1d;
+
             background-color: #fbeaea;
 
             border: 1px solid #c75b5b;
@@ -386,6 +395,7 @@
 
         .opportunity {
             color: #225c32;
+
             background-color: #eaf5ed;
 
             border: 1px solid #5c956b;
@@ -514,6 +524,7 @@
                 <strong>
                     You will use this case every week.
                 </strong>
+
                 Read it now; you will keep building on it
                 through the capstone.
             </p>
@@ -522,7 +533,7 @@
 
 
         <!-- =================================================
-             PROJECT OVERVIEW
+             THE PROJECT
              ================================================= -->
 
         <section class="case-section"
@@ -666,12 +677,14 @@
             </h2>
 
             <p class="section-instruction">
-                Select each section to review important project
-                information.
+                Select each section to review important
+                project information.
             </p>
 
 
-            <!-- PROJECT SCOPE -->
+            <!-- =============================================
+                 PROJECT SCOPE ACCORDION
+                 ============================================= -->
 
             <div class="accordion-item">
 
@@ -705,6 +718,7 @@
                      hidden>
 
                     <ul>
+
                         <li>
                             Site preparation and building construction
                         </li>
@@ -730,6 +744,7 @@
                         <li>
                             Phased go-live
                         </li>
+
                     </ul>
 
                 </div>
@@ -737,7 +752,9 @@
             </div>
 
 
-            <!-- KEY PLAYERS -->
+            <!-- =============================================
+                 KEY PLAYERS ACCORDION
+                 ============================================= -->
 
             <div class="accordion-item">
 
@@ -771,6 +788,7 @@
                      hidden>
 
                     <ul>
+
                         <li>
                             Brightwater executive sponsor
                         </li>
@@ -803,6 +821,7 @@
                         <li>
                             Local permitting authority
                         </li>
+
                     </ul>
 
                 </div>
@@ -810,7 +829,9 @@
             </div>
 
 
-            <!-- KNOWN PRESSURES -->
+            <!-- =============================================
+                 KNOWN PRESSURES ACCORDION
+                 ============================================= -->
 
             <div class="accordion-item">
 
@@ -844,6 +865,7 @@
                      hidden>
 
                     <ul>
+
                         <li>
                             Aggressive, penalty-backed schedule
                         </li>
@@ -868,6 +890,7 @@
                         <li>
                             Weather-sensitive construction window
                         </li>
+
                     </ul>
 
                 </div>
@@ -915,6 +938,7 @@
                     <thead>
 
                         <tr>
+
                             <th scope="col">
                                 Risk ID
                             </th>
@@ -926,6 +950,198 @@
                             <th scope="col">
                                 Type
                             </th>
+
                         </tr>
 
                     </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                <strong>R1</strong>
+                            </td>
+
+                            <td>
+                                Automation equipment arrives late
+                            </td>
+
+                            <td>
+                                <span class="risk-badge threat">
+                                    Threat
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>R2</strong>
+                            </td>
+
+                            <td>
+                                Permitting completed earlier than
+                                expected
+                            </td>
+
+                            <td>
+                                <span class="risk-badge opportunity">
+                                    Opportunity
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>R3</strong>
+                            </td>
+
+                            <td>
+                                Labor shortages delay staffing
+                            </td>
+
+                            <td>
+                                <span class="risk-badge threat">
+                                    Threat
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WEEK 3 CALLOUT
+             ================================================= -->
+
+        <aside class="week-callout"
+               aria-labelledby="week3-heading">
+
+            <div class="week-number"
+                 aria-hidden="true">
+                3
+            </div>
+
+            <div>
+
+                <h2 id="week3-heading">
+                    Coming in Week 3
+                </h2>
+
+                <p>
+                    You will build a more detailed Project Lighthouse
+                    risk register by adding
+                    <strong>
+                        risk owners, triggers, and complete risk
+                        statements
+                    </strong>.
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        /*
+        ========================================================
+        PROJECT LIGHTHOUSE
+        ACCESSIBLE ACCORDION FUNCTIONALITY
+        ========================================================
+        */
+
+        document
+            .querySelectorAll(".lighthouse-case .accordion-button")
+            .forEach(function(button) {
+
+                button.addEventListener("click", function() {
+
+                    /*
+                    Get the ID of the panel controlled
+                    by the selected button.
+                    */
+
+                    const panelId =
+                        button.getAttribute("aria-controls");
+
+
+                    /*
+                    Find the corresponding accordion panel.
+                    */
+
+                    const panel =
+                        document.getElementById(panelId);
+
+
+                    /*
+                    Find the + / - symbol.
+                    */
+
+                    const symbol =
+                        button.querySelector(".accordion-symbol");
+
+
+                    /*
+                    Determine whether the accordion
+                    is currently expanded.
+                    */
+
+                    const isExpanded =
+                        button.getAttribute("aria-expanded") === "true";
+
+
+                    /*
+                    Update the accessibility state.
+                    */
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        String(!isExpanded)
+                    );
+
+
+                    /*
+                    Show or hide the content.
+                    */
+
+                    panel.hidden = isExpanded;
+
+
+                    /*
+                    Change the visual indicator.
+                    */
+
+                    symbol.textContent =
+                        isExpanded ? "+" : "−";
+
+                });
+
+            });
+
+    </script>
+
+</body>
+
+</html>
+
