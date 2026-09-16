@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ==============================================
+         DOCUMENT INFORMATION
+         ============================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Project Lighthouse</title>
+
+
+    <!-- ==============================================
+         CSS STYLES
+         ============================================== -->
+
+    <style>
+
+        /* All Project Lighthouse CSS goes here */
+
+        body {
+            margin: 0;
+            padding: 20px;
+
+            font-family: "Open Sans", Arial, sans-serif;
+
+            background-color: #ffffff;
+            color: #222222;
+        }
+
+        .lighthouse-case {
+            width: 100%;
+            max-width: 1200px;
+
+            margin: 0 auto;
+        }
+
+        /* Additional Project Lighthouse CSS... */
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- ==============================================
+         PROJECT LIGHTHOUSE CONTENT
+         ============================================== -->
+
+    <main class="lighthouse-case">
+
+        <header class="case-header">
+
+            <div class="case-label">
+                RUNNING CASE
+            </div>
+
+            <h1>Project Lighthouse</h1>
+
+            <p>
+                You will use this case every week. Read it now;
+                you will keep building on it through the capstone.
+            </p>
+
+        </header>
+
+
+        <!-- ==========================================
+             CASE OVERVIEW
+             ========================================== -->
+
+        <section>
+
+            <h2>The Project</h2>
+
+            <p>
+                <strong>Brightwater Retail</strong>, a fast-growing
+                online and in-store retailer, has been selected as
+                the preferred provider for a major anchor-client
+                contract.
+            </p>
+
+        </section>
+
+        <!-- Additional Project Lighthouse HTML... -->
+
+    </main>
+
+
+    <!-- ==============================================
+         JAVASCRIPT
+         ============================================== -->
+
+    <script>
+
+        // Project Lighthouse JavaScript goes here.
+
+        document
+            .querySelectorAll(".accordion-button")
+            .forEach(function(button) {
+
+                button.addEventListener("click", function() {
+
+                    const panelId =
+                        button.getAttribute("aria-controls");
+
+                    const panel =
+                        document.getElementById(panelId);
+
+                    const isExpanded =
+                        button.getAttribute("aria-expanded") === "true";
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        String(!isExpanded)
+                    );
+
+                    panel.hidden = isExpanded;
+
+                });
+
+            });
+
+    </script>
+
+</body>
+
+</html>
