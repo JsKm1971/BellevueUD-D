@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <!-- ==============================================
+    <!-- =====================================================
          DOCUMENT INFORMATION
-         ============================================== -->
+         ===================================================== -->
 
     <meta charset="UTF-8">
 
@@ -15,23 +16,36 @@
     <title>Project Lighthouse</title>
 
 
-    <!-- ==============================================
+    <!-- =====================================================
          CSS STYLES
-         ============================================== -->
+         ===================================================== -->
 
     <style>
 
-        /* All Project Lighthouse CSS goes here */
+        /* =====================================================
+           GLOBAL
+           ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             margin: 0;
-            padding: 20px;
+            padding: 30px;
 
             font-family: "Open Sans", Arial, sans-serif;
 
-            background-color: #ffffff;
+            background-color: #f2f2f2;
             color: #222222;
+
+            line-height: 1.6;
         }
+
+
+        /* =====================================================
+           PROJECT LIGHTHOUSE CONTAINER
+           ===================================================== */
 
         .lighthouse-case {
             width: 100%;
@@ -40,7 +54,435 @@
             margin: 0 auto;
         }
 
-        /* Additional Project Lighthouse CSS... */
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
+
+        .case-header {
+            padding: 34px 36px;
+
+            background-color: #4F3674;
+            color: #ffffff;
+
+            border-radius: 12px 12px 0 0;
+            border-bottom: 5px solid #D6A800;
+        }
+
+        .case-label,
+        .looking-ahead {
+            display: inline-block;
+
+            margin-bottom: 8px;
+
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .case-label {
+            color: #ffffff;
+        }
+
+        .case-header h1 {
+            margin: 0 0 8px;
+
+            color: #ffffff;
+
+            font-size: 2rem;
+            line-height: 1.25;
+        }
+
+        .case-intro {
+            max-width: 850px;
+
+            margin: 0;
+
+            font-size: 1rem;
+        }
+
+
+        /* =====================================================
+           CONTENT SECTIONS
+           ===================================================== */
+
+        .case-section {
+            padding: 30px 36px;
+
+            background-color: #ffffff;
+
+            border-left: 1px solid #dddddd;
+            border-right: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .case-section h2 {
+            margin: 0 0 12px;
+
+            color: #4F3674;
+
+            font-size: 1.4rem;
+        }
+
+        .case-section p {
+            margin: 0 0 16px;
+        }
+
+        .section-instruction {
+            color: #555555;
+        }
+
+
+        /* =====================================================
+           YOUR ROLE CALLOUT
+           ===================================================== */
+
+        .role-callout {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            margin-top: 22px;
+            padding: 16px 20px;
+
+            background-color: #f5f2f8;
+
+            border-left: 5px solid #4F3674;
+            border-radius: 6px;
+        }
+
+        .role-icon {
+            color: #D6A800;
+
+            font-size: 1.5rem;
+        }
+
+        .role-callout strong,
+        .role-callout span {
+            display: block;
+        }
+
+        .role-callout strong {
+            color: #4F3674;
+        }
+
+
+        /* =====================================================
+           KEY FACT CARDS
+           ===================================================== */
+
+        .fact-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 20px;
+        }
+
+        .fact-card {
+            padding: 22px;
+
+            background-color: #f7f7f7;
+
+            border: 1px solid #dddddd;
+            border-top: 4px solid #D6A800;
+            border-radius: 8px;
+        }
+
+        .fact-number {
+            color: #4F3674;
+
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .fact-card h3 {
+            margin: 2px 0 8px;
+
+            color: #222222;
+
+            font-size: 1rem;
+        }
+
+        .fact-card p {
+            margin: 0;
+
+            font-size: 0.94rem;
+        }
+
+
+        /* =====================================================
+           ACCORDION
+           ===================================================== */
+
+        .accordion-item {
+            margin-top: 12px;
+
+            border: 1px solid #cccccc;
+            border-radius: 7px;
+
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 16px 20px;
+
+            border: 0;
+
+            background-color: #f7f7f7;
+            color: #222222;
+
+            font-family: inherit;
+            text-align: left;
+
+            cursor: pointer;
+        }
+
+        .accordion-button:hover {
+            background-color: #f1eef5;
+        }
+
+        .accordion-button:focus-visible {
+            outline: 3px solid #D6A800;
+            outline-offset: -3px;
+        }
+
+        .accordion-label {
+            display: block;
+
+            color: #4F3674;
+
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .accordion-summary {
+            display: block;
+
+            margin-top: 2px;
+
+            color: #555555;
+
+            font-size: 0.88rem;
+        }
+
+        .accordion-symbol {
+            flex-shrink: 0;
+
+            color: #4F3674;
+
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .accordion-panel {
+            padding: 6px 22px 16px;
+
+            background-color: #ffffff;
+        }
+
+        .accordion-panel ul {
+            margin-bottom: 0;
+
+            padding-left: 24px;
+        }
+
+        .accordion-panel li {
+            margin-bottom: 7px;
+        }
+
+
+        /* =====================================================
+           RISK REGISTER
+           ===================================================== */
+
+        .risk-section {
+            background-color: #fafafa;
+        }
+
+        .looking-ahead {
+            color: #4F3674;
+        }
+
+        .table-wrapper {
+            width: 100%;
+
+            margin-top: 20px;
+
+            overflow-x: auto;
+        }
+
+        .lighthouse-case table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background-color: #ffffff;
+        }
+
+        .lighthouse-case caption {
+            padding: 0 0 10px;
+
+            color: #333333;
+
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .lighthouse-case th {
+            padding: 13px 15px;
+
+            background-color: #4F3674;
+            color: #ffffff;
+
+            border: 1px solid #4F3674;
+
+            text-align: left;
+        }
+
+        .lighthouse-case td {
+            padding: 13px 15px;
+
+            border: 1px solid #cccccc;
+
+            vertical-align: middle;
+        }
+
+
+        /* =====================================================
+           RISK BADGES
+           ===================================================== */
+
+        .risk-badge {
+            display: inline-block;
+
+            min-width: 105px;
+
+            padding: 4px 10px;
+
+            border-radius: 20px;
+
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .threat {
+            color: #7a1d1d;
+            background-color: #fbeaea;
+
+            border: 1px solid #c75b5b;
+        }
+
+        .opportunity {
+            color: #225c32;
+            background-color: #eaf5ed;
+
+            border: 1px solid #5c956b;
+        }
+
+
+        /* =====================================================
+           WEEK 3 CALLOUT
+           ===================================================== */
+
+        .week-callout {
+            display: flex;
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 24px 30px;
+
+            background-color: #f5f2f8;
+
+            border: 1px solid #dddddd;
+            border-top: 4px solid #D6A800;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .week-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            flex: 0 0 54px;
+
+            height: 54px;
+
+            background-color: #4F3674;
+            color: #ffffff;
+
+            border-radius: 50%;
+
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .week-callout h2 {
+            margin: 0 0 4px;
+
+            color: #4F3674;
+
+            font-size: 1.15rem;
+        }
+
+        .week-callout p {
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE DESIGN
+           ===================================================== */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .case-header,
+            .case-section {
+                padding: 24px 20px;
+            }
+
+            .case-header h1 {
+                font-size: 1.65rem;
+            }
+
+            .fact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .week-callout {
+                align-items: flex-start;
+
+                padding: 22px 20px;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .week-callout {
+                flex-direction: column;
+            }
+
+            .accordion-summary {
+                font-size: 0.82rem;
+            }
+        }
 
     </style>
 
@@ -49,11 +491,16 @@
 
 <body>
 
-    <!-- ==============================================
-         PROJECT LIGHTHOUSE CONTENT
-         ============================================== -->
+    <!-- =====================================================
+         PROJECT LIGHTHOUSE
+         ===================================================== -->
 
     <main class="lighthouse-case">
+
+
+        <!-- =================================================
+             HEADER
+             ================================================= -->
 
         <header class="case-header">
 
@@ -63,72 +510,422 @@
 
             <h1>Project Lighthouse</h1>
 
-            <p>
-                You will use this case every week. Read it now;
-                you will keep building on it through the capstone.
+            <p class="case-intro">
+                <strong>
+                    You will use this case every week.
+                </strong>
+                Read it now; you will keep building on it
+                through the capstone.
             </p>
 
         </header>
 
 
-        <!-- ==========================================
-             CASE OVERVIEW
-             ========================================== -->
+        <!-- =================================================
+             PROJECT OVERVIEW
+             ================================================= -->
 
-        <section>
+        <section class="case-section"
+                 aria-labelledby="lighthouse-overview">
 
-            <h2>The Project</h2>
+            <h2 id="lighthouse-overview">
+                The Project
+            </h2>
 
             <p>
                 <strong>Brightwater Retail</strong>, a fast-growing
-                online and in-store retailer, has been selected as
-                the preferred provider for a major anchor-client
-                contract.
+                online and in-store retailer, has been selected as the
+                preferred provider for a major anchor-client contract.
+                Final award is contingent on Brightwater committing to
+                the capacity and go-live requirements in the proposed
+                agreement.
             </p>
+
+            <p>
+                To serve the client, Brightwater has launched
+                <strong>Project Lighthouse</strong>: design, build,
+                and commission a new automated distribution center.
+            </p>
+
+
+            <!-- YOUR ROLE -->
+
+            <div class="role-callout">
+
+                <span class="role-icon"
+                      aria-hidden="true">
+                    ◆
+                </span>
+
+                <div>
+
+                    <strong>Your Role</strong>
+
+                    <span>
+                        You are the Project Manager.
+                    </span>
+
+                </div>
+
+            </div>
 
         </section>
 
-        <!-- Additional Project Lighthouse HTML... -->
 
-    </main>
+        <!-- =================================================
+             KEY FACTS
+             ================================================= -->
+
+        <section class="case-section"
+                 aria-labelledby="lighthouse-facts">
+
+            <h2 id="lighthouse-facts">
+                Key Facts
+            </h2>
 
 
-    <!-- ==============================================
-         JAVASCRIPT
-         ============================================== -->
+            <div class="fact-grid">
 
-    <script>
 
-        // Project Lighthouse JavaScript goes here.
+                <!-- BUDGET -->
 
-        document
-            .querySelectorAll(".accordion-button")
-            .forEach(function(button) {
+                <div class="fact-card">
 
-                button.addEventListener("click", function() {
+                    <div class="fact-number">
+                        $48M
+                    </div>
 
-                    const panelId =
-                        button.getAttribute("aria-controls");
+                    <h3>
+                        Project Budget
+                    </h3>
 
-                    const panel =
-                        document.getElementById(panelId);
+                    <p>
+                        Brightwater must balance a major capital
+                        investment against demanding client
+                        requirements.
+                    </p>
 
-                    const isExpanded =
-                        button.getAttribute("aria-expanded") === "true";
+                </div>
 
-                    button.setAttribute(
-                        "aria-expanded",
-                        String(!isExpanded)
-                    );
 
-                    panel.hidden = isExpanded;
+                <!-- SCHEDULE -->
 
-                });
+                <div class="fact-card">
 
-            });
+                    <div class="fact-number">
+                        18 vs. 22
+                    </div>
 
-    </script>
+                    <h3>
+                        Months to Go-Live
+                    </h3>
 
-</body>
+                    <p>
+                        Accept an aggressive 18-month,
+                        penalty-backed date or negotiate 22 months
+                        and risk losing the client to a competitor.
+                    </p>
 
-</html>
+                </div>
+
+
+                <!-- SCOPE -->
+
+                <div class="fact-card">
+
+                    <div class="fact-number">
+                        6
+                    </div>
+
+                    <h3>
+                        Major Scope Areas
+                    </h3>
+
+                    <p>
+                        Construction, automation, WMS, systems
+                        integration, workforce preparation, and
+                        phased go-live.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             EXPLORE THE CASE
+             ================================================= -->
+
+        <section class="case-section"
+                 aria-labelledby="lighthouse-details">
+
+            <h2 id="lighthouse-details">
+                Explore the Case
+            </h2>
+
+            <p class="section-instruction">
+                Select each section to review important project
+                information.
+            </p>
+
+
+            <!-- PROJECT SCOPE -->
+
+            <div class="accordion-item">
+
+                <button class="accordion-button"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="lighthouse-scope">
+
+                    <span>
+
+                        <span class="accordion-label">
+                            Project Scope
+                        </span>
+
+                        <span class="accordion-summary">
+                            What Project Lighthouse must deliver
+                        </span>
+
+                    </span>
+
+                    <span class="accordion-symbol"
+                          aria-hidden="true">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="accordion-panel"
+                     id="lighthouse-scope"
+                     hidden>
+
+                    <ul>
+                        <li>
+                            Site preparation and building construction
+                        </li>
+
+                        <li>
+                            Automated material-handling systems,
+                            including automated storage and retrieval,
+                            conveyors, and sortation
+                        </li>
+
+                        <li>
+                            New warehouse management system (WMS)
+                        </li>
+
+                        <li>
+                            Systems integration
+                        </li>
+
+                        <li>
+                            Hiring and training
+                        </li>
+
+                        <li>
+                            Phased go-live
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- KEY PLAYERS -->
+
+            <div class="accordion-item">
+
+                <button class="accordion-button"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="lighthouse-players">
+
+                    <span>
+
+                        <span class="accordion-label">
+                            Key Players
+                        </span>
+
+                        <span class="accordion-summary">
+                            Who has a stake in the project's success?
+                        </span>
+
+                    </span>
+
+                    <span class="accordion-symbol"
+                          aria-hidden="true">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="accordion-panel"
+                     id="lighthouse-players"
+                     hidden>
+
+                    <ul>
+                        <li>
+                            Brightwater executive sponsor
+                        </li>
+
+                        <li>
+                            You, the Project Manager
+                        </li>
+
+                        <li>
+                            The anchor client
+                        </li>
+
+                        <li>
+                            General contractor
+                        </li>
+
+                        <li>
+                            Automation vendor new to Brightwater
+                            and selected partly on price
+                        </li>
+
+                        <li>
+                            WMS software vendor
+                        </li>
+
+                        <li>
+                            Brightwater IT, Operations, and HR groups
+                        </li>
+
+                        <li>
+                            Local permitting authority
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- KNOWN PRESSURES -->
+
+            <div class="accordion-item">
+
+                <button class="accordion-button"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="lighthouse-pressures">
+
+                    <span>
+
+                        <span class="accordion-label">
+                            Known Pressures
+                        </span>
+
+                        <span class="accordion-summary">
+                            Where could uncertainty affect the project?
+                        </span>
+
+                    </span>
+
+                    <span class="accordion-symbol"
+                          aria-hidden="true">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="accordion-panel"
+                     id="lighthouse-pressures"
+                     hidden>
+
+                    <ul>
+                        <li>
+                            Aggressive, penalty-backed schedule
+                        </li>
+
+                        <li>
+                            Large but unproven automation vendor
+                        </li>
+
+                        <li>
+                            Long-lead equipment in tight supply
+                        </li>
+
+                        <li>
+                            Competitive seasonal labor market
+                        </li>
+
+                        <li>
+                            Complex integration across construction,
+                            automation, and software
+                        </li>
+
+                        <li>
+                            Weather-sensitive construction window
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RISK REGISTER
+             ================================================= -->
+
+        <section class="case-section risk-section"
+                 aria-labelledby="lighthouse-risk-register">
+
+            <div class="looking-ahead">
+                LOOKING AHEAD
+            </div>
+
+            <h2 id="lighthouse-risk-register">
+                What Is a Risk Register?
+            </h2>
+
+            <p>
+                A risk register is used to document and track
+                identified uncertainties that could affect a project.
+                Risks can represent <strong>threats</strong> that may
+                negatively affect objectives or
+                <strong>opportunities</strong> that could benefit
+                the project.
+            </p>
+
+
+            <!-- RISK REGISTER TABLE -->
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <caption>
+                        Initial Project Lighthouse Risk Register
+                    </caption>
+
+                    <thead>
+
+                        <tr>
+                            <th scope="col">
+                                Risk ID
+                            </th>
+
+                            <th scope="col">
+                                Risk Description
+                            </th>
+
+                            <th scope="col">
+                                Type
+                            </th>
+                        </tr>
+
+                    </thead>
