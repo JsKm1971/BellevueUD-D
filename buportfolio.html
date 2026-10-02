@@ -1,1 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <!-- =========================================
+         DOCUMENT METADATA
+         ========================================= -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Project Risk Management Flip Cards
+    </title>
+
+
+    <!-- =========================================
+         CSS
+         ========================================= -->
+
+    <style>
+
+        /* =========================================
+           GLOBAL
+           ========================================= */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+
+            font-family: "Open Sans", Arial, sans-serif;
+
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+
+        /* =========================================
+           MAIN LEARNING OBJECT
+           ========================================= */
+
+        .flip-card-activity {
+            width: 100%;
+            max-width: 1300px;
+
+            margin: 0 auto;
+        }
+
+
+        /* =========================================
+           ACTIVITY HEADER
+           ========================================= */
+
+        .flip-card-intro {
+            margin: 0 auto 25px;
+            padding: 0 20px;
+
+            text-align: center;
+        }
+
+        .flip-card-intro h1 {
+            margin: 0 0 10px;
+
+            font-size: 30px;
+            line-height: 1.3;
+        }
+
+        .flip-card-intro p {
+            margin: 0;
+
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+
+        /* =========================================
+           FLIP CARD GRID
+           ========================================= */
+
+        .flip-card-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 25px;
+
+            width: 100%;
+
+            padding: 20px;
+        }
+
+
+        /* =========================================
+           FLIP CARD BUTTON
+           ========================================= */
+
+        .flip-card {
+            width: 100%;
+            height: 200px;
+
+            padding: 0;
+
+            border: 0;
+            border-radius: 10px;
+
+            background: transparent;
+
+            font: inherit;
+
+            cursor: pointer;
+
+            perspective: 1000px;
+        }
+
+
+        /* =========================================
+           KEYBOARD FOCUS
+           ========================================= */
+
+        .flip-card:focus-visible {
+            outline: 4px solid #D6A800;
+            outline-offset: 4px;
+        }
+
+
+        /* =========================================
+           INNER CARD
+           ========================================= */
+
+        .flip-card-inner {
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            transition: transform 0.6s ease;
+
+            transform-style: preserve-3d;
+        }
+
+
+        /* =========================================
+           FLIPPED STATE
+           ========================================= */
+
+        .flip-card.is-flipped
+        .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+
+        /* =========================================
+           FRONT AND BACK
+           ========================================= */
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 4px 8px rgba(0, 0, 0, 0.2);
+
+            text-align: center;
+
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+
+            overflow-wrap: break-word;
+        }
+
+
+        /* =========================================
+           FRONT
+           ========================================= */
+
+        .flip-card-front {
+            gap: 12px;
+
+            background-color: #4F3674;
+            color: #FFFFFF;
+        }
+
+        .question-number {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .question-text {
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+
+        /* =========================================
+           BACK
+           ========================================= */
+
+        .flip-card-back {
+            background-color: #F1F1F1;
+            color: #000000;
+
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.5;
+
+            transform: rotateY(180deg);
+        }
+
+
+        /* =========================================
+           DOWNLOAD RESOURCE
+           ========================================= */
+
+        .flip-card-download-area {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            margin: 15px auto 35px;
+            padding: 0 20px;
+        }
+
+        .flip-card-download-link {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 14px 24px;
+
+            background-color: #4F3674;
+            color: #FFFFFF;
+
+            border: 3px solid #D6A800;
+            border-radius: 8px;
+
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.3;
+
+            text-decoration: none;
+        }
+
+        .flip-card-download-link:hover {
+            background-color: #3E295C;
+        }
+
+        .flip-card-download-link:focus-visible {
+            outline: 4px solid #000000;
+            outline-offset: 4px;
+        }
+
+        .flip-card-download-icon {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+
+        /* =========================================
+           TABLET
+           ========================================= */
+
+        @media (max-width: 900px) {
+
+            .flip-card-container {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 20px;
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+           ========================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .flip-card-container {
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+
+                padding: 15px;
+            }
+
+            .flip-card {
+                height: 220px;
+            }
+
+            .question-text {
+                font-size: 16px;
+            }
+
+            .flip-card-back {
+                font-size: 16px;
+            }
+
+            .flip-card-download-link {
+                width: 100%;
+                max-width: 360px;
+
+                padding: 14px 18px;
+
+                font-size: 16px;
+            }
+
+        }
+
+
+        /* =========================================
+           EXTRA SMALL SCREENS
+           ========================================= */
+
+        @media (max-width: 400px) {
+
+            .flip-card {
+                height: 240px;
+            }
+
+            .question-text,
+            .flip-card-back {
+                font-size: 15px;
+            }
+
+        }
+
+
+        /* =========================================
+           REDUCED MOTION
+           ========================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .flip-card-inner {
+                transition: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         MAIN CONTENT
+         ========================================= -->
+
+    <main>
+
+
+        <!-- =====================================
+             FLIP CARD LEARNING ACTIVITY
+             ===================================== -->
+
+        <section
+            class="flip-card-activity"
+            aria-labelledby="flip-card-heading">
+
+
+            <!-- =================================
+                 ACTIVITY HEADER
+                 ================================= -->
+
+            <header class="flip-card-intro">
+
+                <h1 id="flip-card-heading">
+                    Flip Cards
+                </h1>
+
+                <p>
+                    Select a card or use the Tab key
+                    and press Enter or Space to reveal
+                    the answer.
+                </p>
+
+            </header>
+
+
+            <!-- =================================
+                 FLIP CARD GRID
+                 ================================= -->
+
+            <div class="flip-card-container">
+
+
+                <!-- CARD 1 -->
+
+                <button
+                    class="flip-card"
+                    type="button"
+                    aria-expanded="false">
+
+                    <span class="flip-card-inner">
+
+                        <span class="flip-card-front">
+
+                            <span class="question-number">
+                                Q1.
+                            </span>
+
+                            <span class="question-text">
+                                What are the two primary
+                                components of risk?
+                            </span>
+
+                        </span>
+
+                        <span class="flip-card-back">
+                            Answer: Likelihood and impact.
+                        </span>
+
+                    </span>
+
+                </button>
+
+
+                <!-- CARD 2 -->
+
+                <button
+                    class="flip-card"
+                    type="button"
+                    aria-expanded="false">
+
+                    <span class="flip-card-inner">
+
+                        <span class="flip-card-front">
+
+                            <span class="question-number">
+                                Q2.
+                            </span>
+
+                            <span class="question-text">
+                                What is a favorable uncertain
+                                outcome called?
+                            </span>
+
+                        </span>
+
+                        <span class="flip-card-back">
+                            Answer: An opportunity.
+                        </span>
+
+                    </span>
+
+                </button>
+
+
+                <!-- CARD 3 -->
+
+                <button
+                    class="flip-card"
+                    type="button"
+                    aria-expanded="false">
+
+                    <span class="flip-card-inner">
+
+                        <span class="flip-card-front">
+
+                            <span class="question-number">
+                                Q3.
+                            </span>
+
+                            <span class="question-text">
+                                What generally happens to risk
+                                as likelihood or impact increases?
+                            </span>
+
+                        </span>
+
+                        <span class="flip-card-back">
+                            Answer: Risk increases.
+                        </span>
+
+                    </span>
+
+                </button>
+
+
+                <!-- CARD 4 -->
+
+                <button
+                    class="flip-card"
+                    type="button"
+                    aria-expanded="false">
+
+                    <span class="flip-card-inner">
+
+                        <span class="flip-card-front">
+
+                            <span class="question-number">
+                                Q4.
+                            </span>
+
+                            <span class="question-text">
+                                What are the three basic
+                                risk-tolerance attitudes?
+                            </span>
+
+                        </span>
+
+                        <span class="flip-card-back">
+                            Answer: Risk-averse, risk-neutral,
+                            and risk-seeking.
+                        </span>
+
+                    </span>
+
+                </button>
+
+
+                <!-- CARD 5 -->
+
+                <button
+                    class="flip-card"
+                    type="button"
+                    aria-expanded="false">
+
+                    <span class="flip-card-inner">
+
+                        <span class="flip-card-front">
+
+                            <span class="question-number">
+                                Q5.
+                            </span>
+
+                            <span class="question-text">
+                                Should effective risk management
+                                be proactive or reactive?
+                            </span>
+
+                        </span>
+
+                        <span class="flip-card-back">
+                            Answer: Proactive.
+                        </span>
+
+                    </span>
+
+                </button>
+
+
+                <!-- CARD 6 -->
+
+                <button
+                    class="flip-card"
+                    type="button"
+                    aria-expanded="false">
+
+                    <span class="flip-card-inner">
+
+                        <span class="flip-card-front">
+
+                            <span class="question-number">
+                                Q6.
+                            </span>
+
+                            <span class="question-text">
+                                What are the three basic
+                                conditions for decision-making
+                                discussed in risk management?
+                            </span>
+
+                        </span>
+
+                        <span class="flip-card-back">
+                            Answer: Certainty, risk,
+                            and uncertainty.
+                        </span>
+
+                    </span>
+
+                </button>
+
+
+                <!-- CARD 7 -->
+
+                <button
+                    class="flip-card"
+                    type="button"
+                    aria-expanded="false">
+
+                    <span class="flip-card-inner">
+
+                        <span class="flip-card-front">
+
+                            <span class="question-number">
+                                Q7.
+                            </span>
+
+                            <span class="question-text">
+                                Under which decision condition
+                                are probabilities of outcomes
+                                known or reasonably estimated?
+                            </span>
+
+                        </span>
+
+                        <span class="flip-card-back">
+                            Answer: Risk.
+                        </span>
+
+                    </span>
+
+                </button>
+
+
+                <!-- CARD 8 -->
+
+                <button
+                    class="flip-card"
+                    type="button"
+                    aria-expanded="false">
+
+                    <span class="flip-card-inner">
+
+                        <span class="flip-card-front">
+
+                            <span class="question-number">
+                                Q8.
+                            </span>
+
+                            <span class="question-text">
+                                Under which decision condition
+                                are the probabilities of outcomes
+                                not known?
+                            </span>
+
+                        </span>
+
+                        <span class="flip-card-back">
+                            Answer: Uncertainty.
+                        </span>
+
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+            <!-- =================================
+                 DOWNLOADABLE RESOURCE
+                 ================================= -->
+
+            <div class="flip-card-download-area">
+
+                <a
+                    class="flip-card-download-link"
+                    href="https://content.bellevue.edu/cst/pmgt/410/FlipCards/Project_Risk_Management_Downloadable.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span
+                        class="flip-card-download-icon"
+                        aria-hidden="true">
+                        ↗
+                    </span>
+
+                    <span>
+                        Open Project Risk Management
+                        Study Guide (PDF)
+                    </span>
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const flipCards =
+                    document.querySelectorAll(".flip-card");
+
+                flipCards.forEach(function (card) {
+
+                    card.addEventListener(
+                        "click",
+                        function () {
+
+                            const isFlipped =
+                                card.classList.toggle(
+                                    "is-flipped"
+                                );
+
+                            card.setAttribute(
+                                "aria-expanded",
+                                isFlipped.toString()
+                            );
+
+                        }
+                    );
+
+                });
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
